@@ -1,0 +1,25 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+    
+    <validators>
+    	<field name="rdto.firstname">
+    		<field-validator type="requiredstring">
+    			<message>First Name is required.</message>
+    		</field-validator>
+    	</field>
+    	
+    	<field name="rdto.lastname">
+    		<field-validator type="requiredstring">
+    			<message>Last Name is required.</message>
+    		</field-validator>
+    	</field>
+    <field name="rdto.email">
+    		<field-validator type="requiredstring">
+    			<message>Email is required.</message>
+    		</field-validator>
+    		<field-validator type="email">
+    			<message>Please enter valid email address</message>
+    		</field-validator>
+    		
+    	</field>
+    </validators>
