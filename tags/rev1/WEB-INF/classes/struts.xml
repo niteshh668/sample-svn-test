@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ <struts>
+ 	<package name="RMS" extends="struts-default, json-default">
+ 	 	<result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        
+        <interceptors>
+ 	 		<interceptor name="SessionCheckInterceptor" class="com.nitesh.rms.login.interceptors.SessionCheckInterceptor" />
+ 	 		<interceptor-stack name="sampleStack">
+ 	 			<interceptor-ref name="SessionCheckInterceptor"></interceptor-ref>
+ 	 			<interceptor-ref name="defaultStack"></interceptor-ref>
+ 	 		 </interceptor-stack>
+ 	 	</interceptors>
+ 		
+ 		<default-interceptor-ref name="sampleStack" />
+ 		
+ 		<action name="DisplayHome" >
+ 			 <!-- <result>/loginpage/Login.jsp</result>   -->
+ 			<result type="tiles">DisplayHome</result>
+ 		</action>
+ 		
+ 		<action name="DisplayLogin" >
+ 			 <result type="tiles">DisplayLogin</result>  
+ 			<!-- <result type="tiles">DisplayHome</result> -->
+ 		</action>
+ 		
+ 		<action name="Rooms" class="accommodationAction" method="retriveAccommodationDetails">
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			
+ 			<result name="success" type="tiles">DisplayAccommodations</result>
+ 			
+ 		</action>
+ 		<action name="ViewAccommodation" class="accommodationAction" method="viewAccommodationDetails">
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			<result name="success" type="tiles">ViewAccommodation</result>
+ 			
+ 		</action>
+ 		<action name="Facilities" >
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			<result type="tiles">DisplayAccommodations</result>
+ 		</action>
+ 		<action name="MyBookings" class="bookingAction" method="getMyBookings">
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			<result type="tiles">DisplayAccommodations</result>
+ 		</action>
+ 		<action name="BookingAction">
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			<result type="tiles">DisplayBooking</result>
+ 			<result name="DisplayLogin" type="redirectAction">DisplayLogin
+ 			
+ 			<!-- <param name="accommodationId">${accommodationId}</param>
+ 			<param name="unitId">${param.unitId}</param> -->
+ 			</result>
+ 		</action>
+ 		
+ 		<action name="Gallery" >
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			<result type="tiles">DisplayGallery</result>
+ 		</action>
+ 		<action name="Contact" >
+ 			<!-- <result>/loginpage/Login.jsp</result>  -->
+ 			<result type="tiles">DisplayAccommodations</result>
+ 		</action>
+ 		<action name="RegistrationAction">
+ 		<result>/loginpage/Registration.jsp</result>
+ 		</action>
+ 		<action name="RegisterUser" class="registerUser">
+ 			<interceptor-ref name="token" />
+ 			<interceptor-ref name="defaultStack" />
+ 			<result name="success" type="redirect">/loginpage/Login.jsp</result>
+ 			<result name="error" >/loginpage/Registration.jsp</result>
+ 			<result name="input" >/loginpage/Registration.jsp</result>
+ 			<result name="invalid.token">/loginpage/Registration.jsp</result>
+ 		</action>
+ 		
+ 		<action name="LoginAction" class="loginAction" method="login">
+ 			<result name="success" type="redirectAction">BookingAction</result>
+ 			<result name="error" type="redirectAction" >DisplayLogin</result>
+ 		</action>
+ 		<action name="bookAccommodationAction" class="bookingAction" method="bookAccommodation">
+ 			<result name="Rooms" type="redirectAction">Rooms</result>
+ 			<result name="SUCCESS" type="redirect">
+ 			<param name="actionName">MyBookings</param>
+ 			<param name="requestType" >NotAjax</param>
+ 			</result>
+ 		</action>
+ 		
+ 		<action name="SampleAjaxRequest" class="loginAction" method="sampleAjaxRequest">
+ 			<result name="success" >/loginpage/Home.jsp</result>
+ 			<result name="error" type="redirect" >/loginpage/Login.jsp</result>
+ 			<result name="ajax" type="json" /> 
+ 		</action>	
+ 		<action name="RetrieveUserDetails" class="registerUser" method="retrieveUserDetails">
+ 			
+ 		</action>	
+ 		
+ 	</package>
+ </struts>   

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">  
+<beans>  
+  <bean id="registerUser" class="com.nitesh.rms.login.action.RegisterUserAction" singleton="false" >
+  	<property name="gservice" ref="loginService" />
+  </bean>
+  
+  <bean id="loginAction" class="com.nitesh.rms.login.action.LoginAction" singleton="false">
+  	<property name="lservice" ref="loginService" />
+  </bean>
+
+<bean id="accommodationAction" class="com.nitesh.rms.accommodation.action.AccommodationAction" singleton="false">
+  	<property name="aservice" ref="accommodationService" />
+  </bean>
+  
+  <bean id="bookingAction" class="com.nitesh.rms.booking.action.BookingAction" singleton="false">
+  	<property name="bservice" ref="bookingService" />
+  </bean>
+  
+  <import resource="service.xml"/>
+  <import resource="dao.xml"/>
+</beans>
