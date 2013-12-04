@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="rms.common.page" template="/common/GenericLayout.jsp">
+        <put-attribute name="title" value="RMS"/>
+        <put-attribute name="header" value="/common/Header.jsp"/>
+        <put-attribute name="body" value=""/>
+        <put-attribute name="footer" value="/common/Footer.jsp"/>
+    </definition>
+    <definition name="DisplayHome" extends="rms.common.page" >    
+    	<put-attribute name="title" value="RMS - Home Page" />  
+        <put-attribute name="body" value="/loginpage/Home.jsp"/>
+    </definition>
+    
+    <definition name="DisplayLogin" extends="rms.common.page" >    
+    	<put-attribute name="title" value="RMS - Home Page" />  
+        <put-attribute name="body" value="/loginpage/Login.jsp"/>
+    </definition>
+    <definition name="DisplayAccommodations" extends="rms.common.page" >    
+    	<put-attribute name="title" value="RMS - Accommodation Page" />  
+        <put-attribute name="body" value="/accommodation/accommodation.jsp"/>
+    </definition>
+    <definition name="DisplayGallery" extends="rms.common.page" >    
+    	<put-attribute name="title" value="RMS - Accommodation Page" />  
+        <put-attribute name="body" value="/common/ViewGallery.jsp"/>
+    </definition>
+    <definition name="ViewAccommodation" extends="rms.common.page" >    
+    	<put-attribute name="title" value="RMS - Accommodation Page" />  
+        <put-attribute name="body" value="/accommodation/viewAccommodation.jsp"/>
+    </definition>
+    <definition name="DisplayBooking" extends="rms.common.page" >    
+    	<put-attribute name="title" value="RMS - Booking Page" />  
+        <put-attribute name="body" value="/bookings/booking.jsp"/>
+    </definition>
+    
+    
+    
+</tiles-definitions> 
