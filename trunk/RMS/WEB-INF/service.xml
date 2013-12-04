@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">  
+<beans>  
+  <bean id="loginService" class="com.nitesh.rms.login.service.LoginServiceImpl">
+  	<property name="dao" ref="loginDao" />
+  </bean>
+  <bean id="accommodationService" class="com.nitesh.rms.accommodation.service.AccommodationServiceImpl">
+  	<property name="adao" ref="accommodationDao" /></bean>
+  	
+  <bean id="bookingService" class="com.nitesh.rms.booking.service.BookingServiceImpl">
+  	<property name="bdao" ref="bookingDao" />
+  
+  </bean>
+
+</beans>
